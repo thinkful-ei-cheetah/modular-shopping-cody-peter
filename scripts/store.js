@@ -56,12 +56,24 @@ const store = (function() {
       store.items.splice(deleted, 1);
     };
 
+    const toggleCheckedFilter = function(){
+      store.hideCheckedItems = !store.hideCheckedItems;
+    };
+
+    const setSearchTerm = function(searchTerm){
+      this.searchTerm = searchTerm;
+    };
 
 
-
-
-
-    return {items, hideChecked, addItem, findAndUpdateName, findAndToggleChecked, findById ,findAndDelete
+    return {items, 
+      hideChecked, 
+      addItem, 
+      findAndUpdateName, 
+      findAndToggleChecked, 
+      findById ,
+      findAndDelete,
+      toggleCheckedFilter,
+      setSearchTerm
     };
     
     }());
