@@ -26,7 +26,11 @@ const store = (function() {
     shoppingList.render();
     }; 
 
-    const findById = function(id) {items.find(id => items.id === id);};
+    const findById = function(id) {
+      let found = items.find(item => item.id === id);
+      return found;
+    };
+
 
 
     const findAndUpdateName = function(id, newName) {
@@ -42,9 +46,14 @@ const store = (function() {
     
     }; 
 
-    const findAndToggleChcked = function(id) {
-      let found = findById(id); 
-      found.checked = !found.checked;
+    const findAndToggleChecked = function(id) {
+      let found = findById(id);
+      found.checked = !found.checked ;
+    };
+
+    const findAndDelete =function(id){
+      let deleted = findById(id);
+      store.items.splice(deleted, 1);
     };
 
 
@@ -52,9 +61,10 @@ const store = (function() {
 
 
 
-    return {items, hideChecked, addItem, findAndUpdateName, findAndToggleChcked, findById };
+    return {items, hideChecked, addItem, findAndUpdateName, findAndToggleChecked, findById ,findAndDelete
+    };
     
     }());
 
 const foo = 'bar';
-// console.log(findById())
+// console.log(findById());
