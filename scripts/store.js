@@ -15,7 +15,7 @@ const store = (function() {
     
     const addItem = function(itemName) {}; const updateItem = function(id, updateData) {}; const toggleHideCheckedFilter = function() {};
     
-    return { items, hideChecked, addItem, updateItem, toggleHideCheckedFilter };
+    return {items, hideChecked, addItem, updateItem, toggleHideCheckedFilter };
     
     }());
 

@@ -1,7 +1,7 @@
+/* eslint-disable indent */
 /* eslint-disable strict */
-/* global store, cuid, $ */
+/* global store cuid $ */
 
-// eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
 
   function generateItemElement(item) {
@@ -57,7 +57,18 @@ const shoppingList = (function(){
   
   
   function addItemToShoppingList(itemName) {
-    store.items.push({ id: cuid(), name: itemName, checked: false });
+    // store.items.push({ id: cuid(), name: itemName, checked: false });
+    // itemName.forEach(name =>{
+      try {
+        // eslint-disable-next-line no-undef
+        ITEMS.validateNames(itemName);
+      
+        store.items.push(ITEMS.create(itemName));
+      } catch(error) {
+        console.log('Cannot add item: ' + error.message);
+      }
+    // });
+    shoppingList.render();
   }
   
   function handleNewItemSubmit() {
@@ -66,7 +77,7 @@ const shoppingList = (function(){
       const newItemName = $('.js-shopping-list-entry').val();
       $('.js-shopping-list-entry').val('');
       addItemToShoppingList(newItemName);
-      render();
+      shoppingList.render();
     });
   }
   

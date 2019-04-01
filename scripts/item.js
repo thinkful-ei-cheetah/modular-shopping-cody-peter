@@ -1,8 +1,9 @@
 /* eslint-disable indent */
 /* eslint-disable strict */
-/* global shoppingList $ cuid */
+/* global $ cuid */
 
-const item = (function(){
+
+const ITEMS = (function(){
 const validateNames = function(name){
     if(!name){
         throw new Error('Name Does Not Exist');
