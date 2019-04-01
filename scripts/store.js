@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable strict */
+/* global shoppingList $ cuid */
 
 const store = (function() {
 
