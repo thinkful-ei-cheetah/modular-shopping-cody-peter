@@ -8,8 +8,20 @@ const validateNames = function(name){
         throw new Error('Name Does Not Exist');
     }
 };
+
+
+
+
+const create = function(name){
+    return {
+        id : cuid(),
+        'name' : name,
+        checked : false
+    } ;
+};
 return {
-    validateNames,
+    validateNames, create
  };
 
 }());
+
