@@ -13,11 +13,48 @@ const store = (function() {
       let hideChecked = false; 
       let searchTerm = '';
     
-    const addItem = function(itemName) {}; const updateItem = function(id, updateData) {}; const toggleHideCheckedFilter = function() {};
+    const addItem = function(itemName) {
+      try {
+        // eslint-disable-next-line no-undef
+        ITEMS.validateNames(itemName);
+      
+        this.items.push(ITEMS.create(itemName));
+      } catch(error) {
+        console.log('Cannot add item: ' + error.message);
+      }
+    // });
+    shoppingList.render();
+    }; 
+
+    const findById = function(id) {items.find(id => items.id === id);};
+
+
+    const findAndUpdateName = function(id, newName) {
+      try {
+        ITEMS.validateNames(newName);
+        let found = findById(id); 
+        found.items.name = newName;
+      
+      } catch(error) {
+        console.log('Cannot update name' + error.message);
+      }
+    // });
     
-    return {items, hideChecked, addItem, updateItem, toggleHideCheckedFilter };
+    }; 
+
+    const findAndToggleChcked = function(id) {
+      let found = findById(id); 
+      found.checked = !found.checked;
+    };
+
+
+
+
+
+
+    return {items, hideChecked, addItem, findAndUpdateName, findAndToggleChcked, findById };
     
     }());
 
 const foo = 'bar';
-
+// console.log(findById())
